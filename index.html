@@ -1,11 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; URL=https://localhost:8443/SessionTest/PageB.jsp" />
-    <title>Redirect</title>
+    <title>PageB.jspへ移動</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        text-align: center;
+        padding-top: 50px;
+      }
+      .elapsed {
+        font-size: 1.4em;
+        margin-bottom: 20px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 1em;
+        cursor: pointer;
+      }
+    </style>
+    <script>
+      let seconds = 0;
+      function updateTimer() {
+        document.getElementById('timer').textContent = seconds + " 秒経過";
+        seconds++;
+      }
+      window.onload = function() {
+        setInterval(updateTimer, 1000);
+      };
+    </script>
   </head>
   <body>
-    <p>Redirecting to PageB.jsp...</p>
+    <h2>PageB.jsp へ移動するにはボタンを押してください</h2>
+    <div class="elapsed" id="timer">0 秒経過</div>
+    <button onclick="location.href='https://localhost:8443/SessionTest/PageB.jsp';">
+      移動する
+    </button>
   </body>
 </html>
